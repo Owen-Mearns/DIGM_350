@@ -5,7 +5,7 @@ using UnityEngine;
 
     public class Movement : MonoBehaviour
     {
-        public float acceleration, moveSpeed;
+        public float acceleration, moveSpeed, playerDrag;
         private float horizontalInput, verticalInput;
         //[SerializeField] float maxAcceleration = 5f;
 
@@ -24,6 +24,7 @@ using UnityEngine;
             {
                 rb = GetComponent<Rigidbody>();
                 rb.freezeRotation = true;
+                rb.drag = playerDrag;
             }
 
         private void CheckInteract() {

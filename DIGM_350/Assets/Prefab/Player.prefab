@@ -34,7 +34,7 @@ Transform:
   - {fileID: 5936033935737239883}
   - {fileID: 4371445473131249439}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &653469894274843570
 Rigidbody:
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0
   moveSpeed: 10
+  playerDrag: 1
   orientation: {fileID: 5936033935737239883}
 --- !u!1 &1845462151460757944
 GameObject:
