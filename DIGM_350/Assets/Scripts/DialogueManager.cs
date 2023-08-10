@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue) {
         Cursor.lockState = CursorLockMode.None;
         dialogueCanvas.SetActive(true);
+        PlayerCam.locked = true;
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach(string sentence in dialogue.sentences) {
@@ -29,6 +30,7 @@ public class DialogueManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             dialogueCanvas.SetActive(false);
             Movement.interacting = false;
+            PlayerCam.locked = false ;
             return;
         }
         string sentence = sentences.Dequeue();

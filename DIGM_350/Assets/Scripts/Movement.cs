@@ -34,7 +34,6 @@ using UnityEngine;
                     if (hit.transform.name == "NPC") {
                         interacting = true;                     
                         hit.collider.GetComponent<NpcScript>().TriggerDialogue();
-                        //Debug.Log("My object is clicked by mouse");
                     }
                 }
             }
