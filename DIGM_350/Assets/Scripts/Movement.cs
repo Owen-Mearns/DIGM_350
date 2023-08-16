@@ -5,7 +5,14 @@ using UnityEngine;
 
     public class Movement : MonoBehaviour
     {
-        public float acceleration, moveSpeed, playerDrag;
+
+        [Header("Jumping")]
+        public KeyCode jumpKey = KeyCode.Space;
+        public LayerMask whatIsGrounded;
+        bool grounded;
+        bool readyJump = true;
+
+    public float acceleration, moveSpeed, playerDrag;
         private float horizontalInput, verticalInput;
         //[SerializeField] float maxAcceleration = 5f;
 
@@ -40,13 +47,40 @@ using UnityEngine;
             }
         }
 
+    private void Jump()
+    {
+        //reset y velocity
 
-        private void Update()
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        rb.AddForce(transform.up * 5.0f, ForceMode.Impulse);
+
+    }
+
+    private void ResetJump()
+    {
+        readyJump = true;
+    }
+
+
+    private void Update()
         {
-            if (!interacting) {
+        grounded = Physics.Raycast(transform.position, Vector3.down, 2.0f * .5f + .2f, whatIsGrounded);
+        if (!interacting) {
                 horizontalInput = Input.GetAxisRaw("Horizontal");
                 verticalInput = Input.GetAxisRaw("Vertical");
-                CheckInteract();
+
+            if (Input.GetKey(jumpKey) && readyJump && grounded)
+            {
+                Debug.Log("jump");
+                readyJump = false;
+
+                Jump();
+
+                Invoke(nameof(ResetJump), 1.0f);
+                
+            }
+            CheckInteract();
             }
         }
 
