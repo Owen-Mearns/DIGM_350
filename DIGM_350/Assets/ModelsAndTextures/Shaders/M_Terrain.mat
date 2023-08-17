@@ -86,7 +86,7 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BottomHeight: 2.43
+    - _BottomHeight: 3.4
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -122,7 +122,7 @@ Material:
     - _GroundColor: {r: 0.9150943, g: 0.8075953, b: 0.47912958, a: 0}
     - _SecondTopColor: {r: 1, g: 0.9133239, b: 0.5613207, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TopColor: {r: 0, g: 1, b: 0.14685631, a: 0}
+    - _TopColor: {r: 0, g: 1, b: 0.06293082, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6528574129577852535
 MonoBehaviour:
