@@ -9,12 +9,16 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text nameText, dialogueText;
     private Queue<string> sentences;
     [SerializeField] private GameObject dialogueCanvas;
+    private bool foundChangeTrigger, foundChoiceTrigger = false;
+    [SerializeField] public GameObject choiceButtonCanvas;
     private void Start() {
         sentences = new Queue<string>();
         Cursor.lockState = CursorLockMode.Locked;
         dialogueCanvas.SetActive(false);
     }
     public void StartDialogue(Dialogue dialogue) {
+        foundChangeTrigger = dialogue.sceneChangeTrigger;
+        foundChoiceTrigger = dialogue.optionTrigger;
         Cursor.lockState = CursorLockMode.None;
         dialogueCanvas.SetActive(true);
         PlayerCam.locked = true;
@@ -27,10 +31,14 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence() {
         if (sentences.Count == 0) {
+            if (foundChangeTrigger) SceneChanger.LoadNextScene();
             Cursor.lockState = CursorLockMode.Locked;
             dialogueCanvas.SetActive(false);
-            Movement.interacting = false;
-            PlayerCam.locked = false ;
+            PlayerScript.interacting = false;
+            PlayerCam.locked = false;
+            if (foundChoiceTrigger) {
+                choiceButtonCanvas.SetActive(true);
+            }
             return;
         }
         string sentence = sentences.Dequeue();
