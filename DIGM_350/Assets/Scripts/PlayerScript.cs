@@ -60,7 +60,7 @@ using UnityEngine;
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        rb.AddForce(transform.up * 5.0f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 6.0f, ForceMode.Impulse);
 
     }
 
@@ -72,7 +72,7 @@ using UnityEngine;
 
     private void Update()
         {
-        grounded = Physics.Raycast(transform.position, Vector3.down, 2.0f * .5f + .2f, whatIsGrounded);
+        grounded = Physics.Raycast(transform.position, Vector3.down, 3.0f * .5f + .2f, whatIsGrounded);
         if (!interacting) {
                 horizontalInput = Input.GetAxisRaw("Horizontal");
                 verticalInput = Input.GetAxisRaw("Vertical");
