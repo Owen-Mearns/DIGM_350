@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
         timesTalkedTo++;
         if (ItemManager.quotaSatisfied) {
             FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue[1]);
+            ItemManager.quotaSatisfied = false;
             return;
         }
         FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue[0]);

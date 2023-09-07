@@ -16,4 +16,5 @@ public class ChoiceCanvasScript : MonoBehaviour
         PlayerCam.locked = false;
     }
 
+
 }

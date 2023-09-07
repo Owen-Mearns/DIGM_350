@@ -5,12 +5,13 @@ using UnityEngine;
 public class EndCond : MonoBehaviour
 {
     public List<GameObject> images = new List<GameObject>();
-    public bool hasGirdle;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        if(hasGirdle == true)
+        if(GirdleHandler.girdleGivenBack == true)
         {
+           images[1].gameObject.SetActive(true);
+        } else {
            images[0].gameObject.SetActive(true);
         }
     }

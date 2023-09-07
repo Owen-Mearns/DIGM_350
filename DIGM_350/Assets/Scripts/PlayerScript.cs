@@ -46,7 +46,7 @@ using UnityEngine;
                         interacting = true;                     
                         hit.collider.GetComponent<DialogueTrigger>().TriggerDialogue();
                     }
-                if (hit.transform.name == "Firewood") {
+                if (hit.transform.name == "Firewood" || hit.transform.name == "Canteen" || hit.transform.name == "Girdle") {
                     //Debug.Log("found wood HAHAHAHAH");
                     hit.collider.GetComponent<FirewoodScript>().CollectFirewood();
                 }
